@@ -33,7 +33,7 @@ bool queue_is_full(const Queue *q) {
 
 bool queue_enqueue(Queue *q, int value) {
     if (q == NULL || queue_is_full(q)) {
-        return false; /* Queue overflow or invalid pointer */
+        return false;
     }
     q->data[q->rear] = value;
     q->rear = (q->rear + 1) % QUEUE_MAX_CAPACITY;
@@ -43,7 +43,7 @@ bool queue_enqueue(Queue *q, int value) {
 
 bool queue_dequeue(Queue *q, int *out_val) {
     if (q == NULL || queue_is_empty(q)) {
-        return false; /* Queue underflow or invalid pointer */
+        return false;
     }
     if (out_val != NULL) {
         *out_val = q->data[q->front];

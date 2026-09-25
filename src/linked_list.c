@@ -24,7 +24,7 @@ bool list_insert_beginning(LinkedList *list, int value) {
 
     Node *new_node = (Node *)malloc(sizeof(Node));
     if (new_node == NULL) {
-        return false; /* Memory allocation failed */
+        return false;
     }
 
     new_node->data = value;
@@ -75,11 +75,10 @@ bool list_delete_value(LinkedList *list, int value) {
     }
 
     if (current == NULL) {
-        return false; /* Value not found */
+        return false;
     }
 
     if (prev == NULL) {
-        /* Deleting the head node */
         list->head = current->next;
     } else {
         prev->next = current->next;

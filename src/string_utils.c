@@ -202,7 +202,6 @@ bool str_is_anagram(const char *str1, const char *str2) {
         return false;
     }
 
-    /* Frequency array for 26 English letters */
     int freq[26] = {0};
 
     int len1 = 0;

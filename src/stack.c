@@ -31,7 +31,7 @@ bool stack_is_full(const Stack *s) {
 
 bool stack_push(Stack *s, int value) {
     if (s == NULL || stack_is_full(s)) {
-        return false; /* Stack overflow or invalid pointer */
+        return false;
     }
     s->top++;
     s->data[s->top] = value;
@@ -40,7 +40,7 @@ bool stack_push(Stack *s, int value) {
 
 bool stack_pop(Stack *s, int *out_val) {
     if (s == NULL || stack_is_empty(s)) {
-        return false; /* Stack underflow or invalid pointer */
+        return false;
     }
     if (out_val != NULL) {
         *out_val = s->data[s->top];

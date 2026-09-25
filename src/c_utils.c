@@ -32,7 +32,7 @@ int c_abs(int n) {
 
 long long c_power(int base, int exp) {
     if (exp < 0) {
-        return 0; /* Exponents < 0 return 0 for integer mathematics */
+        return 0;
     }
     long long result = 1;
     for (int i = 0; i < exp; i++) {
@@ -43,7 +43,7 @@ long long c_power(int base, int exp) {
 
 long long c_factorial(int n) {
     if (n < 0) {
-        return -1; /* Factorial is undefined for negative integers */
+        return -1;
     }
     long long result = 1;
     for (int i = 2; i <= n; i++) {
@@ -119,7 +119,7 @@ int c_reverse_num(int n) {
 
 bool c_is_palindrome_num(int n) {
     if (n < 0) {
-        return false; /* Negative numbers are not palindromes due to sign */
+        return false;
     }
     return n == c_reverse_num(n);
 }

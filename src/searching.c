@@ -15,11 +15,11 @@ int linear_search(const int arr[], int size, int target) {
 
     for (int i = 0; i < size; i++) {
         if (arr[i] == target) {
-            return i; /* Found at index i */
+            return i;
         }
     }
 
-    return -1; /* Target not found */
+    return -1;
 }
 
 int binary_search(const int arr[], int size, int target) {
@@ -31,26 +31,25 @@ int binary_search(const int arr[], int size, int target) {
     int right = size - 1;
 
     while (left <= right) {
-        /* Prevents potential integer overflow compared to (left + right) / 2 */
         int mid = left + (right - left) / 2;
 
         if (arr[mid] == target) {
-            return mid; /* Target found */
+            return mid;
         }
 
         if (arr[mid] < target) {
-            left = mid + 1; /* Target lies in the right half */
+            left = mid + 1;
         } else {
-            right = mid - 1; /* Target lies in the left half */
+            right = mid - 1;
         }
     }
 
-    return -1; /* Target not found */
+    return -1;
 }
 
 int binary_search_recursive(const int arr[], int left, int right, int target) {
     if (arr == NULL || left > right) {
-        return -1; /* Base case: search range exhausted or invalid pointer */
+        return -1;
     }
 
     int mid = left + (right - left) / 2;

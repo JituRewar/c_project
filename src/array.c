@@ -124,7 +124,6 @@ int array_count_occurrences(const int arr[], int size, int target) {
     return count;
 }
 
-/* Helper to reverse an array segment */
 static void reverse_range(int arr[], int start, int end) {
     while (start < end) {
         int temp = arr[start];
@@ -147,7 +146,6 @@ void array_rotate_left(int arr[], int size, int k) {
         return;
     }
 
-    /* Reverse first k elements, then remaining, then all */
     reverse_range(arr, 0, k - 1);
     reverse_range(arr, k, size - 1);
     reverse_range(arr, 0, size - 1);

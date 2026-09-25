@@ -9,7 +9,6 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-/* Helper function to swap two array elements */
 static void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
@@ -24,7 +23,6 @@ void bubble_sort(int arr[], int size) {
     for (int i = 0; i < size - 1; i++) {
         bool swapped = false;
 
-        /* Last i elements are already in place */
         for (int j = 0; j < size - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 swap(&arr[j], &arr[j + 1]);
@@ -32,7 +30,6 @@ void bubble_sort(int arr[], int size) {
             }
         }
 
-        /* If no two elements were swapped, array is already sorted */
         if (!swapped) {
             break;
         }
@@ -47,14 +44,12 @@ void selection_sort(int arr[], int size) {
     for (int i = 0; i < size - 1; i++) {
         int min_idx = i;
 
-        /* Find the minimum element in the remaining unsorted subarray */
         for (int j = i + 1; j < size; j++) {
             if (arr[j] < arr[min_idx]) {
                 min_idx = j;
             }
         }
 
-        /* Swap found minimum with current element */
         if (min_idx != i) {
             swap(&arr[i], &arr[min_idx]);
         }
@@ -70,7 +65,6 @@ void insertion_sort(int arr[], int size) {
         int key = arr[i];
         int j = i - 1;
 
-        /* Move elements of arr[0..i-1] that are greater than key one position ahead */
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
@@ -79,12 +73,10 @@ void insertion_sort(int arr[], int size) {
     }
 }
 
-/* Helper function to merge two sorted subarrays [left..mid] and [mid+1..right] */
 static void merge(int arr[], int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    /* Temporary arrays for left and right subarrays */
     int left_arr[n1];
     int right_arr[n2];
 
@@ -128,7 +120,6 @@ void merge_sort(int arr[], int left, int right) {
     merge(arr, left, mid, right);
 }
 
-/* Lomuto partition scheme using the last element as pivot */
 static int partition(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = low - 1;
