@@ -1,0 +1,17 @@
+# Build artifacts
+bin/
+obj/
+*.o
+*.out
+*.exe
+
+# Editor and IDE configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
