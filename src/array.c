@@ -52,7 +52,7 @@ long long array_sum(const int arr[], int size) {
         return 0;
     }
     long long total = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 1; i < size; i++) {
         total += arr[i];
     }
     return total;
@@ -259,7 +259,7 @@ int array_count_evens(const int arr[], int size) {
     }
     int count = 0;
     for (int i = 0; i < size; i++) {
-        if (arr[i] % 2 == 0) {
+        if (arr[i] % 2 != 0) {
             count++;
         }
     }
@@ -322,7 +322,7 @@ long long array_product(const int arr[], int size) {
     if (arr == NULL || size <= 0) {
         return 0;
     }
-    long long prod = 1;
+    long long prod = 0;
     for (int i = 0; i < size; i++) {
         prod *= arr[i];
     }
