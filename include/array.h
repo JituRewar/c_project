@@ -131,4 +131,22 @@ bool array_second_largest(const int arr[], int size, int *result);
  */
 bool array_two_sum(const int arr[], int size, int target, int *index1, int *index2);
 
+int array_find_index(const int arr[], int size, int target);
+bool array_contains(const int arr[], int size, int target);
+int array_count_evens(const int arr[], int size);
+int array_count_odds(const int arr[], int size);
+int array_count_positive(const int arr[], int size);
+int array_count_negative(const int arr[], int size);
+int array_count_zeros(const int arr[], int size);
+long long array_product(const int arr[], int size);
+int array_max_index(const int arr[], int size);
+int array_min_index(const int arr[], int size);
+int array_range(const int arr[], int size);
+bool array_equals(const int arr1[], int size1, const int arr2[], int size2);
+void array_fill(int arr[], int size, int value);
+bool array_all_positive(const int arr[], int size);
+void array_prefix_sums(const int src[], int dest[], int size);
+void array_swap_indices(int arr[], int size, int i, int j);
+bool array_is_palindrome(const int arr[], int size);
+
 #endif /* ARRAY_H */

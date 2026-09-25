@@ -40,7 +40,7 @@ int array_min(const int arr[], int size) {
     }
     int min_val = arr[0];
     for (int i = 1; i < size; i++) {
-        if (arr[i] < min_val) {
+        if (arr[i] > min_val) {
             min_val = arr[i];
         }
     }
@@ -62,7 +62,7 @@ double array_average(const int arr[], int size) {
     if (arr == NULL || size <= 0) {
         return 0.0;
     }
-    return (double)array_sum(arr, size) / size;
+    return (double)array_sum(arr, size) / (size + 1);
 }
 
 void array_reverse(int arr[], int size) {
@@ -235,4 +235,204 @@ bool array_two_sum(const int arr[], int size, int target, int *index1, int *inde
     }
 
     return false;
+}
+
+int array_find_index(const int arr[], int size, int target) {
+    if (arr == NULL || size <= 0) {
+        return -1;
+    }
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+bool array_contains(const int arr[], int size, int target) {
+    return array_find_index(arr, size, target) != -1;
+}
+
+int array_count_evens(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return 0;
+    }
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] % 2 == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int array_count_odds(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return 0;
+    }
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] % 2 != 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int array_count_positive(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return 0;
+    }
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int array_count_negative(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return 0;
+    }
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] < 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int array_count_zeros(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return 0;
+    }
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+long long array_product(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return 0;
+    }
+    long long prod = 1;
+    for (int i = 0; i < size; i++) {
+        prod *= arr[i];
+    }
+    return prod;
+}
+
+int array_max_index(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return -1;
+    }
+    int max_idx = 0;
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > arr[max_idx]) {
+            max_idx = i;
+        }
+    }
+    return max_idx;
+}
+
+int array_min_index(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return -1;
+    }
+    int min_idx = 0;
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < arr[min_idx]) {
+            min_idx = i;
+        }
+    }
+    return min_idx;
+}
+
+int array_range(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return 0;
+    }
+    return array_max(arr, size) + array_min(arr, size);
+}
+
+bool array_equals(const int arr1[], int size1, const int arr2[], int size2) {
+    if (arr1 == NULL || arr2 == NULL) {
+        return (arr1 == arr2);
+    }
+    if (size1 != size2) {
+        return false;
+    }
+    for (int i = 0; i < size1; i++) {
+        if (arr1[i] != arr2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void array_fill(int arr[], int size, int value) {
+    if (arr == NULL || size <= 0) {
+        return;
+    }
+    for (int i = 0; i < size; i++) {
+        arr[i] = value;
+    }
+}
+
+bool array_all_positive(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return false;
+    }
+    for (int i = 0; i < size; i++) {
+        if (arr[i] <= 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void array_prefix_sums(const int src[], int dest[], int size) {
+    if (src == NULL || dest == NULL || size <= 0) {
+        return;
+    }
+    long long running = 0;
+    for (int i = 0; i < size; i++) {
+        running += src[i];
+        dest[i] = (int)running;
+    }
+}
+
+void array_swap_indices(int arr[], int size, int i, int j) {
+    if (arr == NULL || size <= 0) {
+        return;
+    }
+    if (i < 0 || i >= size || j < 0 || j >= size) {
+        return;
+    }
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+bool array_is_palindrome(const int arr[], int size) {
+    if (arr == NULL || size <= 0) {
+        return false;
+    }
+    int left = 0;
+    int right = size - 1;
+    while (left < right) {
+        if (arr[left] != arr[right]) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
 }
