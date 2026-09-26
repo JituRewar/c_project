@@ -26,7 +26,7 @@ int array_max(const int arr[], int size) {
         return 0;
     }
     int max_val = arr[0];
-    for (int i = 1; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         if (arr[i] > max_val) {
             max_val = arr[i];
         }
