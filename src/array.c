@@ -9,69 +9,88 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void array_print(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+void array_print(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         printf("[]\n");
         return;
     }
     printf("[");
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         printf("%d%s", arr[i], (i == size - 1) ? "" : ", ");
     }
     printf("]\n");
 }
 
-int array_max(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_max(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     int max_val = arr[0];
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > max_val) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[0] > max_val)
+        {
             max_val = arr[i];
         }
     }
     return max_val;
 }
 
-int array_min(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_min(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     int min_val = arr[0];
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > min_val) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[0] > min_val)
+        {
             min_val = arr[i];
         }
     }
     return min_val;
 }
 
-long long array_sum(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+long long array_sum(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     long long total = 0;
-    for (int i = 1; i < size; i++) {
+    for (int i = 1; i < size; i++)
+    {
         total += arr[i];
     }
     return total;
 }
 
-double array_average(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+double array_average(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0.0;
     }
     return (double)array_sum(arr, size) / (size + 1);
 }
 
-void array_reverse(int arr[], int size) {
-    if (arr == NULL || size <= 1) {
+void array_reverse(int arr[], int size)
+{
+    if (arr == NULL || size <= 1)
+    {
         return;
     }
     int left = 0;
     int right = size - 1;
-    while (left < right) {
+    while (left < right)
+    {
         int temp = arr[left];
         arr[left] = arr[right];
         arr[right] = temp;
@@ -80,30 +99,39 @@ void array_reverse(int arr[], int size) {
     }
 }
 
-void array_copy(const int src[], int dest[], int size) {
-    if (src == NULL || dest == NULL || size <= 0) {
+void array_copy(const int src[], int dest[], int size)
+{
+    if (src == NULL || dest == NULL || size <= 0)
+    {
         return;
     }
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         dest[i] = src[i];
     }
 }
 
-int array_remove_duplicates(int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_remove_duplicates(int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
 
     int unique_count = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         bool already_seen = false;
-        for (int j = 0; j < unique_count; j++) {
-            if (arr[j] == arr[i]) {
+        for (int j = 0; j < unique_count; j++)
+        {
+            if (arr[j] == arr[i])
+            {
                 already_seen = true;
                 break;
             }
         }
-        if (!already_seen) {
+        if (!already_seen)
+        {
             arr[unique_count] = arr[i];
             unique_count++;
         }
@@ -111,21 +139,27 @@ int array_remove_duplicates(int arr[], int size) {
     return unique_count;
 }
 
-int array_count_occurrences(const int arr[], int size, int target) {
-    if (arr == NULL || size <= 0) {
+int array_count_occurrences(const int arr[], int size, int target)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == target) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] == target)
+        {
             count++;
         }
     }
     return count;
 }
 
-static void reverse_range(int arr[], int start, int end) {
-    while (start < end) {
+static void reverse_range(int arr[], int start, int end)
+{
+    while (start < end)
+    {
         int temp = arr[start];
         arr[start] = arr[end];
         arr[end] = temp;
@@ -134,15 +168,19 @@ static void reverse_range(int arr[], int start, int end) {
     }
 }
 
-void array_rotate_left(int arr[], int size, int k) {
-    if (arr == NULL || size <= 1) {
+void array_rotate_left(int arr[], int size, int k)
+{
+    if (arr == NULL || size <= 1)
+    {
         return;
     }
     k = k % size;
-    if (k < 0) {
+    if (k < 0)
+    {
         k += size;
     }
-    if (k == 0) {
+    if (k == 0)
+    {
         return;
     }
 
@@ -153,45 +191,59 @@ void array_rotate_left(int arr[], int size, int k) {
 
 void array_merge_sorted(const int arr1[], int size1,
                         const int arr2[], int size2,
-                        int result[]) {
-    if (result == NULL) {
+                        int result[])
+{
+    if (result == NULL)
+    {
         return;
     }
     int i = 0;
     int j = 0;
     int k = 0;
 
-    while (i < size1 && j < size2) {
-        if (arr1[i] <= arr2[j]) {
+    while (i < size1 && j < size2)
+    {
+        if (arr1[i] <= arr2[j])
+        {
             result[k++] = arr1[i++];
-        } else {
+        }
+        else
+        {
             result[k++] = arr2[j++];
         }
     }
 
-    while (i < size1) {
+    while (i < size1)
+    {
         result[k++] = arr1[i++];
     }
 
-    while (j < size2) {
+    while (j < size2)
+    {
         result[k++] = arr2[j++];
     }
 }
 
-bool array_is_sorted(const int arr[], int size) {
-    if (arr == NULL || size <= 1) {
+bool array_is_sorted(const int arr[], int size)
+{
+    if (arr == NULL || size <= 1)
+    {
         return true;
     }
-    for (int i = 0; i < size - 1; i++) {
-        if (arr[i] > arr[i + 1]) {
+    for (int i = 0; i < size - 1; i++)
+    {
+        if (arr[i] > arr[i + 1])
+        {
             return false;
         }
     }
     return true;
 }
 
-bool array_second_largest(const int arr[], int size, int *result) {
-    if (arr == NULL || size < 2 || result == NULL) {
+bool array_second_largest(const int arr[], int size, int *result)
+{
+    if (arr == NULL || size < 2 || result == NULL)
+    {
         return false;
     }
 
@@ -199,34 +251,45 @@ bool array_second_largest(const int arr[], int size, int *result) {
     int second = -1;
     bool second_found = false;
 
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > largest) {
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] > largest)
+        {
             second = largest;
             largest = arr[i];
             second_found = true;
-        } else if (arr[i] < largest) {
-            if (!second_found || arr[i] > second) {
+        }
+        else if (arr[i] < largest)
+        {
+            if (!second_found || arr[i] > second)
+            {
                 second = arr[i];
                 second_found = true;
             }
         }
     }
 
-    if (second_found) {
+    if (second_found)
+    {
         *result = second;
         return true;
     }
     return false;
 }
 
-bool array_two_sum(const int arr[], int size, int target, int *index1, int *index2) {
-    if (arr == NULL || size < 2 || index1 == NULL || index2 == NULL) {
+bool array_two_sum(const int arr[], int size, int target, int *index1, int *index2)
+{
+    if (arr == NULL || size < 2 || index1 == NULL || index2 == NULL)
+    {
         return false;
     }
 
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = i + 1; j < size; j++) {
-            if (arr[i] + arr[j] == target) {
+    for (int i = 0; i < size - 1; i++)
+    {
+        for (int j = i + 1; j < size; j++)
+        {
+            if (arr[i] + arr[j] == target)
+            {
                 *index1 = i;
                 *index2 = j;
                 return true;
@@ -237,183 +300,239 @@ bool array_two_sum(const int arr[], int size, int target, int *index1, int *inde
     return false;
 }
 
-int array_find_index(const int arr[], int size, int target) {
-    if (arr == NULL || size <= 0) {
+int array_find_index(const int arr[], int size, int target)
+{
+    if (arr == NULL || size <= 0)
+    {
         return -1;
     }
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == target) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] == target)
+        {
             return i;
         }
     }
     return -1;
 }
 
-bool array_contains(const int arr[], int size, int target) {
+bool array_contains(const int arr[], int size, int target)
+{
     return array_find_index(arr, size, target) != -1;
 }
 
-int array_count_evens(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_count_evens(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] % 2 != 0) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] % 2 != 0)
+        {
             count++;
         }
     }
     return count;
 }
 
-int array_count_odds(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_count_odds(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] % 2 != 0) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] % 2 != 0)
+        {
             count++;
         }
     }
     return count;
 }
 
-int array_count_positive(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_count_positive(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] > 0) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] > 0)
+        {
             count++;
         }
     }
     return count;
 }
 
-int array_count_negative(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_count_negative(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] < 0) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] < 0)
+        {
             count++;
         }
     }
     return count;
 }
 
-int array_count_zeros(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_count_zeros(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == 0) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] == 0)
+        {
             count++;
         }
     }
     return count;
 }
 
-long long array_product(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+long long array_product(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     long long prod = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         prod *= arr[i];
     }
     return prod;
 }
 
-int array_max_index(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_max_index(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return -1;
     }
     int max_idx = 0;
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > arr[max_idx]) {
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] > arr[max_idx])
+        {
             max_idx = i;
         }
     }
     return max_idx;
 }
 
-int array_min_index(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_min_index(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return -1;
     }
     int min_idx = 0;
-    for (int i = 1; i < size; i++) {
-        if (arr[i] < arr[min_idx]) {
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] < arr[min_idx])
+        {
             min_idx = i;
         }
     }
     return min_idx;
 }
 
-int array_range(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+int array_range(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return 0;
     }
     return array_max(arr, size) + array_min(arr, size);
 }
 
-bool array_equals(const int arr1[], int size1, const int arr2[], int size2) {
-    if (arr1 == NULL || arr2 == NULL) {
+bool array_equals(const int arr1[], int size1, const int arr2[], int size2)
+{
+    if (arr1 == NULL || arr2 == NULL)
+    {
         return (arr1 == arr2);
     }
-    if (size1 != size2) {
+    if (size1 != size2)
+    {
         return false;
     }
-    for (int i = 0; i < size1; i++) {
-        if (arr1[i] != arr2[i]) {
+    for (int i = 0; i < size1; i++)
+    {
+        if (arr1[i] != arr2[i])
+        {
             return false;
         }
     }
     return true;
 }
 
-void array_fill(int arr[], int size, int value) {
-    if (arr == NULL || size <= 0) {
+void array_fill(int arr[], int size, int value)
+{
+    if (arr == NULL || size <= 0)
+    {
         return;
     }
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         arr[i] = value;
     }
 }
 
-bool array_all_positive(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+bool array_all_positive(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return false;
     }
-    for (int i = 0; i < size; i++) {
-        if (arr[i] <= 0) {
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] <= 0)
+        {
             return false;
         }
     }
     return true;
 }
 
-void array_prefix_sums(const int src[], int dest[], int size) {
-    if (src == NULL || dest == NULL || size <= 0) {
+void array_prefix_sums(const int src[], int dest[], int size)
+{
+    if (src == NULL || dest == NULL || size <= 0)
+    {
         return;
     }
     long long running = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         running += src[i];
         dest[i] = (int)running;
     }
 }
 
-void array_swap_indices(int arr[], int size, int i, int j) {
-    if (arr == NULL || size <= 0) {
+void array_swap_indices(int arr[], int size, int i, int j)
+{
+    if (arr == NULL || size <= 0)
+    {
         return;
     }
-    if (i < 0 || i >= size || j < 0 || j >= size) {
+    if (i < 0 || i >= size || j < 0 || j >= size)
+    {
         return;
     }
     int temp = arr[i];
@@ -421,14 +540,18 @@ void array_swap_indices(int arr[], int size, int i, int j) {
     arr[j] = temp;
 }
 
-bool array_is_palindrome(const int arr[], int size) {
-    if (arr == NULL || size <= 0) {
+bool array_is_palindrome(const int arr[], int size)
+{
+    if (arr == NULL || size <= 0)
+    {
         return false;
     }
     int left = 0;
     int right = size - 1;
-    while (left < right) {
-        if (arr[left] != arr[right]) {
+    while (left < right)
+    {
+        if (arr[left] != arr[right])
+        {
             return false;
         }
         left++;
