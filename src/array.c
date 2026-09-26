@@ -40,7 +40,7 @@ int array_min(const int arr[], int size) {
     }
     int min_val = arr[0];
     for (int i = 1; i < size; i++) {
-        if (arr[i] > min_val) {
+        if (arr[i] < min_val) {
             min_val = arr[i];
         }
     }
