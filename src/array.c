@@ -322,7 +322,7 @@ long long array_product(const int arr[], int size) {
     if (arr == NULL || size <= 0) {
         return 0;
     }
-    long long prod = 0;
+    long long prod = 1;
     for (int i = 0; i < size; i++) {
         prod *= arr[i];
     }
