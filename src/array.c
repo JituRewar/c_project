@@ -40,7 +40,7 @@ int array_min(const int arr[], int size) {
     }
     int min_val = arr[0];
     for (int i = 1; i < size; i++) {
-        if (arr[i] > min_val) {
+        if (arr[i] < min_val) {
             min_val = arr[i];
         }
     }
@@ -62,7 +62,7 @@ double array_average(const int arr[], int size) {
     if (arr == NULL || size <= 0) {
         return 0.0;
     }
-    return (double)array_sum(arr, size) / (size + 1);
+    return (double)array_sum(arr, size) / size ;
 }
 
 void array_reverse(int arr[], int size) {
