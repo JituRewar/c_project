@@ -52,7 +52,7 @@ long long array_sum(const int arr[], int size) {
         return 0;
     }
     long long total = 0;
-    for (int i = 1; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         total += arr[i];
     }
     return total;
