@@ -62,7 +62,7 @@ double array_average(const int arr[], int size) {
     if (arr == NULL || size <= 0) {
         return 0.0;
     }
-    return (double)array_sum(arr, size) / (size + 1);
+    return (double)array_sum(arr, size) / (size);
 }
 
 void array_reverse(int arr[], int size) {
@@ -259,7 +259,7 @@ int array_count_evens(const int arr[], int size) {
     }
     int count = 0;
     for (int i = 0; i < size; i++) {
-        if (arr[i] % 2 != 0) {
+        if (arr[i] % 2 == 0) {
             count++;
         }
     }
